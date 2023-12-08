@@ -8,7 +8,14 @@
 // update and say "Log out". If a user clicks on the button again, its text
 // should switch from "Log Out" to "Log In".
 
-/// TODO: replace this with your code
+const button = document.getElementById("auth")
+
+const toggle = (evt) => {
+    evt.preventDefault();
+    button.innerText = "Log Out"
+}
+
+button.addEventListener('click', toggle)
 
 // Send an alert
 //

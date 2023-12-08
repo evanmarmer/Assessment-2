@@ -10,7 +10,7 @@
     "open-report": "open-cli wb-assess-2-report.html",
     "test:all": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --no-warnings\" jest",
     "further-study": "run-s -c test:all open-report",
-    "start": "npm-run-all test:watch",
+    "start": "npm-run-all open-report test:watch",
     "test": "run-s -c test:core open-report"
   },
   "author": "",
