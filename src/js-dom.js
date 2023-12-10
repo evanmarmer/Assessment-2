@@ -12,7 +12,11 @@ const button = document.getElementById("auth")
 
 const toggle = (evt) => {
     evt.preventDefault();
-    button.innerText = "Log Out"
+    if(button.innerText = "Log In"){
+        button.innerText = "Log out";
+    } else{button.innerText = "Log Out"
+        button.innerText = "Log in"
+    }
 }
 
 button.addEventListener('click', toggle)
@@ -24,7 +28,14 @@ button.addEventListener('click', toggle)
 // A user should be able to enter what they want the alert to say in the
 // text box. Then, they can submit the form to trigger the alert.
 
-/// TODO: replace this with your code
+const form = document.getElementById('send-alert')
+const input = document.getElementById('alert-message')
+
+const sendAlert = (event) =>{
+    event.preventDefault()
+    alert(input.value)
+}
+ form.addEventListener('click', sendAlert)
 
 // Add an item
 //
@@ -41,7 +52,17 @@ button.addEventListener('click', toggle)
 //     <li>Item</li>  <!-- This was added after double-clicking -->
 //   </ol>
 
-/// TODO: replace this with your code
+const ol = document.getElementById('list')
+const btn = document.getElementById('item-adder')
+
+const addItem = (event) => {
+    event.preventDefault()
+    const li = document.createElement('li')
+    li.innerText = "Item"
+    ol.appendChild(li)
+}
+
+btn.addEventListener('click', addItem)
 
 // Change colors
 //
@@ -52,7 +73,26 @@ button.addEventListener('click', toggle)
 // Clicking on "Turn Stuff Red" should make text red and clicking on "Turn
 // Stuff Blue" should make text blue.
 
-/// TODO: replace this with your code
+const bluBtn = document.getElementById('blue')
+const redBtn = document.getElementById('red')
+const change = document.getElementsByClassName('changes-colors')
+// console.log(change)
+
+const changeBlue = (event) => {
+    event.preventDefault()
+    for (const word of change)
+    // console.log(word)
+    word.style.color = 'blue'
+}
+
+const changeRed = (event) => {
+    event.preventDefault()
+    for (const word of change)
+    word.style.color = 'Red'
+}
+
+bluBtn.addEventListener('click', changeBlue)
+redBtn.addEventListener('click', changeRed)
 
 // Calculate factorial
 //
@@ -69,7 +109,34 @@ button.addEventListener('click', toggle)
 //   - calls your function that calculates a factorial
 //   - puts the result of the function inside the "result" span
 
-/// TODO: replace this with your code
+const form1 = document.getElementById('factorial-calculator')
+const input1 = document.getElementById('factorial-input')
+const result = document.getElementById('result')
+
+const factorial = (event, input1) => {
+    event.preventDefault()
+    result.innerText = input1
+
+    if (input1 === 0 || input1 === 1)
+    return 1;
+  for (const i = input1 - 1; i >= 1; i--) {
+    input *= i;
+  }
+  return input1;
+}
+
+form1.addEventListener('submit', factorial)
+
+//example taken from google
+// function factorialize(num) {
+//   if (num === 0 || num === 1)
+//   return 1;
+// for (var i = num - 1; i >= 1; i--) {
+//   num *= i;
+// }
+// return num;
+// }
+// factorialize(5);
 
 // Validate a form
 //
@@ -86,4 +153,21 @@ button.addEventListener('click', toggle)
 // the feedback text to say "The word must be at least 4 characters long." and
 // change the color of the text to red..
 
-/// TODO: replace this with your code
+const form2 = document.getElementById('recommend-word')
+const input2 = document.getElementById('word')
+const p = document.querySelector('.form-feedback')
+
+const func = (event) => {
+    event.preventDefault()
+    const words = input2.value
+    if (words.length > 3){
+        p.innerText = "Thanks for your submission!"
+        p.style.color = 'green'
+    } else {
+        p.innerText = "The word must be at least 4 characters long."
+        p.style.color = "red"
+    }
+}
+
+
+form2.addEventListener('submit', func)

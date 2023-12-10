@@ -103,7 +103,7 @@ function translateToPirateTalk(phrase) {
 //   wordCount('hello world')
 //   => { hello: 1, world: 1 }
 function wordCount(str) {
-
+  
 }
 
 // Given an object representing a bug, return true if the given bug is
@@ -127,7 +127,7 @@ function wordCount(str) {
 //   }, 1);
 //   => true
 function isBugAvailable(bug, month) {
-
+  return bug.availability.months.includes(month)
 }
 
 
